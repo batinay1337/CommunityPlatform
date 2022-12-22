@@ -15,6 +15,8 @@
 		9F2DEE8C2953C4C400AF67EB /* AdminLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE8B2953C4C400AF67EB /* AdminLogin.swift */; };
 		9F2DEE8E2953C4F100AF67EB /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE8D2953C4F100AF67EB /* HomePage.swift */; };
 		9F2DEE902953C52200AF67EB /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE8F2953C52200AF67EB /* PasswordField.swift */; };
+		9F2DEE922953C83800AF67EB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE912953C83800AF67EB /* Models.swift */; };
+		9F2DEE942953D17100AF67EB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE932953D17100AF67EB /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		9F2DEE8B2953C4C400AF67EB /* AdminLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLogin.swift; sourceTree = "<group>"; };
 		9F2DEE8D2953C4F100AF67EB /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		9F2DEE8F2953C52200AF67EB /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
+		9F2DEE912953C83800AF67EB /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		9F2DEE932953D17100AF67EB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9F2DEE952953D83A00AF67EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +64,9 @@
 		9F2DEE642953BD8100AF67EB /* CommunityPlatform */ = {
 			isa = PBXGroup;
 			children = (
+				9F2DEE952953D83A00AF67EB /* Info.plist */,
 				9F2DEE742953BDFA00AF67EB /* View */,
-				9F2DEE732953BDF200AF67EB /* Model */,
+				9F2DEE732953BDF200AF67EB /* Models */,
 				9F2DEE652953BD8100AF67EB /* CommunityPlatformApp.swift */,
 				9F2DEE692953BD8100AF67EB /* Assets.xcassets */,
 				9F2DEE6B2953BD8100AF67EB /* Preview Content */,
@@ -76,11 +82,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		9F2DEE732953BDF200AF67EB /* Model */ = {
+		9F2DEE732953BDF200AF67EB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9F2DEE912953C83800AF67EB /* Models.swift */,
+				9F2DEE932953D17100AF67EB /* ViewModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9F2DEE742953BDFA00AF67EB /* View */ = {
@@ -187,6 +195,8 @@
 				9F2DEE8C2953C4C400AF67EB /* AdminLogin.swift in Sources */,
 				9F2DEE902953C52200AF67EB /* PasswordField.swift in Sources */,
 				9F2DEE662953BD8100AF67EB /* CommunityPlatformApp.swift in Sources */,
+				9F2DEE942953D17100AF67EB /* ViewModel.swift in Sources */,
+				9F2DEE922953C83800AF67EB /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +328,7 @@
 				DEVELOPMENT_TEAM = WZ6ZG45XVZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CommunityPlatform/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -347,6 +358,7 @@
 				DEVELOPMENT_TEAM = WZ6ZG45XVZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CommunityPlatform/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

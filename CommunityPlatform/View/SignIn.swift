@@ -10,7 +10,13 @@ import SwiftUI
 
 import CommonCrypto
 
+
+
+
 struct SignIn: View {
+    
+    
+    
     
     @State private var userName = "root"
     @State private var password = "toor"
@@ -22,6 +28,11 @@ struct SignIn: View {
     @State private var isLoginValidAdmin: Bool = false
     @State private var shouldShowLoginAlert: Bool = false
     
+    let item: PostModel
+    
+    init(password: String, StudentPassword: String) {
+        self.password = item.StudentPassword
+        }
     
     
     func hashPassword(_ password: String) -> String {
@@ -31,11 +42,15 @@ struct SignIn: View {
       let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
         var hash = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
         CC_SHA256(bytes.baseAddress, CC_LONG(data.count), &hash)
-          
+         
         return hash
       }
       return hash.map { String(format: "%02x", $0) }.joined()
     }
+    
+    
+    
+   
     
     
     
@@ -132,8 +147,3 @@ struct SignIn: View {
 
 
 
-struct SignIn_Previews: PreviewProvider {
-    static var previews: some View {
-        SignIn()
-    }
-}
