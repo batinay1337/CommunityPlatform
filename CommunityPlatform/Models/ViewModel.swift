@@ -7,12 +7,14 @@
 
 import Foundation
 import SwiftUI
-
+/*
 class ViewModel: ObservableObject {
-    @Published var items = [PostModel]()
+    @Published var items = [StudentModel]()
     let prefixUrl = "http://localhost:3000"
     
-    
+    init() {
+        fetchPosts()
+    }
     
     //MARK: retrieve data
     func fetchPosts() {
@@ -30,9 +32,9 @@ class ViewModel: ObservableObject {
             
             do{
                 if let data = data {
-                    let result = try JSONDecoder().decode(DataModel.self, from: data)
+                    let result = try JSONDecoder().decode(StudentModel.self, from: data)
                     DispatchQueue.main.async {
-                        self.items = result.data
+//                        self.items = result.data
                     }
                 } else {
                     print("NO DATA")
@@ -46,3 +48,4 @@ class ViewModel: ObservableObject {
     }
 }
 
+*/

@@ -15,7 +15,8 @@ import CommonCrypto
 
 struct SignIn: View {
     
-    
+    @EnvironmentObject var network: Network
+   
     
     
     @State private var userName = "root"
@@ -28,11 +29,8 @@ struct SignIn: View {
     @State private var isLoginValidAdmin: Bool = false
     @State private var shouldShowLoginAlert: Bool = false
     
-    let item: PostModel
     
-    init(password: String, StudentPassword: String) {
-        self.password = item.StudentPassword
-        }
+    
     
     
     func hashPassword(_ password: String) -> String {
@@ -47,7 +45,6 @@ struct SignIn: View {
       }
       return hash.map { String(format: "%02x", $0) }.joined()
     }
-    
     
     
    
@@ -77,6 +74,7 @@ struct SignIn: View {
                 PasswordField("Password", text: $password)
                 
                 
+                            
                 NavigationLink(destination: Mainpage(), isActive: self.$isLoginValidStu) {
                     /*
                      Here we put the content view of `NavigationLink`.
@@ -87,12 +85,22 @@ struct SignIn: View {
                         .onTapGesture {
                             //determine login validity
                             
-                            //MARK: DOUBLE HASH FCKN MUTHİŞ
+                            
                             let hashedPass = self.hashPassword(hashPassword(password))
                             
                             //MARK: QUERYDEN GELEN PASSWORD SELECT BURADAKI HASH STRINGI ILE YER DEĞİŞTİRECEK
                             
-                            let isLoginValid = self.userName == "root" && hashedPass == "27eb25f2b8cfc542244d56b861064b006307df4a2f0e0f6ce144be42dba381e4"
+                            var isLoginValid = false
+                            
+                            for user in network.students {
+                                
+                                    isLoginValid = user.StudentPassword == self.password && user.StudentName == self.userName
+                                    
+                                
+                            }
+                                
+                            
+                            
                             
                             //trigger logic
                             if isLoginValid {
@@ -100,6 +108,7 @@ struct SignIn: View {
                             }
                             else {
                                 self.shouldShowLoginAlert = true //trigger Alert
+                                
                             }
                         }
                     
@@ -141,9 +150,16 @@ struct SignIn: View {
                 Alert(title: Text("Email/Password incorrect"))
             }
         }
+        .onAppear {
+                    network.getUsers()
+                }
     }
 }
 
 
-
+struct SignIn_Previews: PreviewProvider {
+    static var previews: some View {
+        SignIn().environmentObject(Network())
+    }
+}
 

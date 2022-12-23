@@ -8,13 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct DataModel: Decodable {
-    let error: Bool
-    let message: String
-    let data: [PostModel]
-}
 
-struct PostModel: Decodable {
+
+struct StudentModel: Decodable, Identifiable {
     let id: Int
     let StudentName: String
     let StudentSurname: String
@@ -25,6 +21,48 @@ struct PostModel: Decodable {
     let Department: String
     let ClassYear: Int
     let StudentPassword: String
+}
+
+
+struct Admin: Decodable {
     
-    
+    let idAdmin: Int
+    let Password: String
+    let AdminName: String
+    let AdminSurname: String
+    let AdminPhoneNumber: String
+    let AdminEMail: String
+}
+
+
+
+struct CommunitySocialMediaAccounts {
+    let idCommunitySocialMediaAccounts: Int
+    let FacebookLink: String
+    let InstagramLink: String
+    let TwitterLink: String
+}
+
+
+struct CommunityLeader {
+    let idCommunityLeader: Int
+    let CommunityLeaderPassword: String
+    let Student_idStudent: Int
+}
+
+
+
+struct Communities {
+    let idCommunities: Int
+    let CommunityName: String
+    let YearOfFoundation: Date
+    let HeadOfCommunity: String
+    let CommunityEMail: String
+    let PurposeOfTheCommunity: String
+    let CommunityProfileImage: Image
+    let CommunityPictures:Image
+    let CommunityVideo:Image //???????????
+    let Admin_idAdmin: Int
+    let CommunitySocialMediaAccounts_idCommunitySocialMediaAccounts: Int
+    let CommunityLeader_idCommunityLeader: Int
 }

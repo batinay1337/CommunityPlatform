@@ -17,6 +17,7 @@
 		9F2DEE902953C52200AF67EB /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE8F2953C52200AF67EB /* PasswordField.swift */; };
 		9F2DEE922953C83800AF67EB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE912953C83800AF67EB /* Models.swift */; };
 		9F2DEE942953D17100AF67EB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE932953D17100AF67EB /* ViewModel.swift */; };
+		9FCA46AE2955455400A6763E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA46AD2955455400A6763E /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9F2DEE912953C83800AF67EB /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		9F2DEE932953D17100AF67EB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9F2DEE952953D83A00AF67EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9FCA46AD2955455400A6763E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				9F2DEE912953C83800AF67EB /* Models.swift */,
 				9F2DEE932953D17100AF67EB /* ViewModel.swift */,
+				9FCA46AD2955455400A6763E /* Network.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				9F2DEE882953C35500AF67EB /* SignIn.swift in Sources */,
 				9F2DEE8C2953C4C400AF67EB /* AdminLogin.swift in Sources */,
 				9F2DEE902953C52200AF67EB /* PasswordField.swift in Sources */,
+				9FCA46AE2955455400A6763E /* Network.swift in Sources */,
 				9F2DEE662953BD8100AF67EB /* CommunityPlatformApp.swift in Sources */,
 				9F2DEE942953D17100AF67EB /* ViewModel.swift in Sources */,
 				9F2DEE922953C83800AF67EB /* Models.swift in Sources */,
