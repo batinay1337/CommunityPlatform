@@ -19,11 +19,11 @@ struct SignIn: View {
    
     
     
-    @State private var userName = "root"
-    @State private var password = "toor"
+    @State private var userName = "Batinay"
+    @State private var password = "1234"
     @State private var isSecured: Bool = true
     
-    
+    @State private var name = ""
     
     @State private var isLoginValidStu: Bool = false
     @State private var isLoginValidAdmin: Bool = false
@@ -73,7 +73,7 @@ struct SignIn: View {
                 
                 PasswordField("Password", text: $password)
                 
-                
+               
                             
                 NavigationLink(destination: Mainpage(), isActive: self.$isLoginValidStu) {
                     /*
@@ -92,12 +92,19 @@ struct SignIn: View {
                             
                             var isLoginValid = false
                             
-                            for user in network.students {
-                                
-                                    isLoginValid = user.StudentPassword == self.password && user.StudentName == self.userName
+                            self.network.getUsers()
+                            
+                            
+                            for student in self.network.students {
+                                if student.StudentPassword == self.password && student.StudentName == userName{
+                                    isLoginValid = true
+                                    print(student.StudentPassword)
                                     
-                                
+                                }
                             }
+                            
+                           
+                            
                                 
                             
                             
@@ -149,10 +156,11 @@ struct SignIn: View {
             .alert(isPresented: $shouldShowLoginAlert) {
                 Alert(title: Text("Email/Password incorrect"))
             }
+            .onAppear {
+                        network.getUsers()
+                    }
         }
-        .onAppear {
-                    network.getUsers()
-                }
+        
     }
 }
 

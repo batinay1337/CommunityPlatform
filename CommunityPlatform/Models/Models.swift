@@ -10,13 +10,15 @@ import SwiftUI
 
 
 
-struct StudentModel: Decodable, Identifiable {
-    let id: Int
+struct StudentModel: Decodable
+{
+    
+    let idStudent: Int
     let StudentName: String
     let StudentSurname: String
     let StudentAddress: String
     let StudentPhoneNumber: String
-    let BirthDate: Date
+    let StudentBirthDate:String
     let YearOfRegistration: Int
     let Department: String
     let ClassYear: Int
