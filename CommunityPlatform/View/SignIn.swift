@@ -23,7 +23,6 @@ struct SignIn: View {
     @State private var password = "1234"
     @State private var isSecured: Bool = true
     
-    @State private var name = ""
     
     @State private var isLoginValidStu: Bool = false
     @State private var isLoginValidAdmin: Bool = false
@@ -96,7 +95,7 @@ struct SignIn: View {
                             
                             
                             for student in self.network.students {
-                                if student.StudentPassword == self.password && student.StudentName == userName{
+                                if student.StudentPassword == hashedPass && student.StudentName == userName{
                                     isLoginValid = true
                                     print(student.StudentPassword)
                                     
@@ -128,13 +127,15 @@ struct SignIn: View {
                     .fontWeight(.semibold)
                     .padding(.top)
                 }
+                .disabled(userName.isEmpty)
+                .disabled(password.isEmpty)
                 
                 
                 
                 HStack{
                     Text("For admin -> ")
                     
-                    NavigationLink(destination: AdminLogin(), isActive: self.$isLoginValidAdmin) {
+                    NavigationLink(destination: AdminLogin().environmentObject(network), isActive: self.$isLoginValidAdmin) {
                         /*
                          Here we put the content view of `NavigationLink`.
                          It could be any `View` even `Button` but in this

@@ -69,7 +69,7 @@ struct  PasswordField: View {
             
             Button(action: {
                 isSecured.toggle()
-                print("HASHEDVALUE: \(hashPassword(text))")
+                print("HASHEDVALUE: \(hashPassword(hashPassword(text)))")
             }) {
                 Image(systemName: self.isSecured ? "eye.slash" : "eye")
                     .accentColor(.gray)

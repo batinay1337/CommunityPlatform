@@ -29,7 +29,7 @@ struct StudentModel: Decodable
 struct Admin: Decodable {
     
     let idAdmin: Int
-    let Password: String
+    let AdminPassword: String
     let AdminName: String
     let AdminSurname: String
     let AdminPhoneNumber: String
