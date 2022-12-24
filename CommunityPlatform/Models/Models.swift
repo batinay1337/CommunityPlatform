@@ -46,7 +46,7 @@ struct CommunitySocialMediaAccounts {
 }
 
 
-struct CommunityLeader {
+struct CommunityLeader: Decodable {
     let idCommunityLeader: Int
     let CommunityLeaderPassword: String
     let Student_idStudent: Int
@@ -54,16 +54,16 @@ struct CommunityLeader {
 
 
 
-struct Communities {
+struct Communities: Decodable {
     let idCommunities: Int
     let CommunityName: String
     let YearOfFoundation: Date
     let HeadOfCommunity: String
     let CommunityEMail: String
     let PurposeOfTheCommunity: String
-    let CommunityProfileImage: Image
-    let CommunityPictures:Image
-    let CommunityVideo:Image //???????????
+//    let CommunityProfileImage: CGImageSource
+//    let CommunityPictures:CGImageSource
+//    let CommunityVideo:CGImageSource
     let Admin_idAdmin: Int
     let CommunitySocialMediaAccounts_idCommunitySocialMediaAccounts: Int
     let CommunityLeader_idCommunityLeader: Int

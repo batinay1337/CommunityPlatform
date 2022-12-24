@@ -17,6 +17,7 @@ struct AdminLogin: View {
     
     
     @State private var isLoginValid: Bool = false
+    @State private var welcomeName  = ""
     @State private var shouldShowLoginAlert: Bool = false
     
     
@@ -63,14 +64,17 @@ struct AdminLogin: View {
                 
                 PasswordField("Password", text: $adminPassword)
                 
+               
                 
-                
-                NavigationLink(destination: AdminPanel(), isActive: self.$isLoginValid) {
+                NavigationLink(destination: AdminPanel(welcomeName: welcomeName).environmentObject(network), isActive: self.$isLoginValid) {
                     /*
                      Here we put the content view of `NavigationLink`.
                      It could be any `View` even `Button` but in this
                      example we use a `Text` with `onTapGesture`.
                      */
+                    
+                    
+                    
                     Text("Sign in")
                         .onTapGesture {
                             //determine login validity
@@ -89,6 +93,7 @@ struct AdminLogin: View {
                                 
                                 if admin.AdminPassword == adminPassword && admin.AdminName == adminName{
                                     isLoginValid = true
+                                    self.welcomeName = admin.AdminName
                                     
                                     
                                 }
@@ -105,11 +110,11 @@ struct AdminLogin: View {
                             //trigger logic
                             if isLoginValid {
                                 self.isLoginValid = true //trigger NavigationLink
-                                print("YESAQ")
+                                
                             }
                             else {
                                 self.shouldShowLoginAlert = true //trigger Alert
-                                print("NOAQ")
+                                
                                 
                             }
                         }

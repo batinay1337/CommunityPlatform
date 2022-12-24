@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F0A1C0429560C0B004BC14C /* AdminPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A1C0329560C0B004BC14C /* AdminPanel.swift */; };
+		9F0A1C2729572E1E004BC14C /* CreateLeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A1C2629572E1E004BC14C /* CreateLeader.swift */; };
 		9F2DEE662953BD8100AF67EB /* CommunityPlatformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE652953BD8100AF67EB /* CommunityPlatformApp.swift */; };
 		9F2DEE682953BD8100AF67EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE672953BD8100AF67EB /* ContentView.swift */; };
 		9F2DEE6A2953BD8100AF67EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F2DEE692953BD8100AF67EB /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		9F0A1C0329560C0B004BC14C /* AdminPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanel.swift; sourceTree = "<group>"; };
+		9F0A1C2629572E1E004BC14C /* CreateLeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLeader.swift; sourceTree = "<group>"; };
 		9F2DEE622953BD8100AF67EB /* CommunityPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommunityPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2DEE652953BD8100AF67EB /* CommunityPlatformApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPlatformApp.swift; sourceTree = "<group>"; };
 		9F2DEE672953BD8100AF67EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				9F2DEE8B2953C4C400AF67EB /* AdminLogin.swift */,
 				9F2DEE8D2953C4F100AF67EB /* HomePage.swift */,
 				9F2DEE8F2953C52200AF67EB /* PasswordField.swift */,
+				9F0A1C2629572E1E004BC14C /* CreateLeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				9F2DEE8E2953C4F100AF67EB /* HomePage.swift in Sources */,
 				9F2DEE882953C35500AF67EB /* SignIn.swift in Sources */,
 				9F2DEE8C2953C4C400AF67EB /* AdminLogin.swift in Sources */,
+				9F0A1C2729572E1E004BC14C /* CreateLeader.swift in Sources */,
 				9F0A1C0429560C0B004BC14C /* AdminPanel.swift in Sources */,
 				9F2DEE902953C52200AF67EB /* PasswordField.swift in Sources */,
 				9FCA46AE2955455400A6763E /* Network.swift in Sources */,
