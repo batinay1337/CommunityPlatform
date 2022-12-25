@@ -20,3 +20,8 @@ xmysql -h localhost -u mysqlUsername -p mysqlPassword -d databaseName
 ```
 http://localhost:3000
 ```
+example usage by batinay:
+
+```
+xmysql -h localhost -u root -p 12345678 -d CommunityPlatform-BatinayUnsel-20070001051
+```
