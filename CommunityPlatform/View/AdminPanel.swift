@@ -11,34 +11,56 @@ struct AdminPanel: View {
     
     @EnvironmentObject var network: Network
     
-    let welcomeName: String
+    let welcomeAdminName: String
+    let welcomeAdminId: Int
     
-    @State private var Student_idStudent = ""
-    @State private var CommunityLeaderPassword = ""
+    @State private var CommunityLeaderName = ""
+    @State private var CommunityLeaderSurname = ""
+    
+    @State private var isLoginValidLeader: Bool = false
+    @State private var isLoginValidCommunity: Bool = false
     
     
-      
+    
+
+    
+    
     
     var body: some View {
         NavigationView{
             ScrollView{
                 HStack{
-                    Text("Welcome \(welcomeName)!")
+                    Text("Welcome \(welcomeAdminName)!")
                         .bold()
                         .font(.title2)
                 }
                 
                 VStack{
-                    Text("Community Leaders")
-                    .fontWeight(.semibold)
-                    .font(.title3)
-                    .padding(.trailing,150)
+                    HStack{
+                        Text("Community Leaders")
+                        .fontWeight(.semibold)
+                        .font(.title3)
+                        .padding(.trailing,100)
+                        
+                        
+                        NavigationLink(destination: CreateLeader( welcomeName: welcomeAdminName).environmentObject(network), isActive: self.$isLoginValidLeader) {
+                            Image(systemName: "plus")
+                                .onTapGesture {
+                                    isLoginValidLeader = true
+                                }
+                        }
+                        
+                    }
+                    
                     
                     
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(network.admins, id: \.idAdmin) { item in
+                            
+                            ForEach(self.network.leaders, id: \.idCommunityLeader) { item in
+                                
+                                
                                 
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 12)
@@ -56,52 +78,69 @@ struct AdminPanel: View {
                                         Image("avatarPerson")
                                             .padding(.bottom,10)
                                             
-                                           
-                                            
+                                       
                                         
-                                        Text(item.AdminName)
+                                        
+                                        Text(item.CommunityLeaderName)
                                             .fontWeight(.semibold)
                                             .font(.callout)
                                             .foregroundColor(Color("WhiteColor"))
                                             
                                     }
+                                    
                                 }
                                 .padding(.horizontal,5)
                                 
+                                
                             }
+                            
                         }
                     }
+                    .onAppear {
+                        network.getCommunityLeader()
+                    }
                     
-                    
+                    HStack{
                         Text("Communities")
                         .fontWeight(.semibold)
                         .font(.title3)
-                        .padding(.trailing,200)
-                        .padding(.top,40)
+                        .padding(.trailing,165)
+                        
+                        
+                        NavigationLink(destination: CreateCommunity(welcomeAdminName: welcomeAdminName,welcomeAdminId: welcomeAdminId).environmentObject(network), isActive: self.$isLoginValidCommunity) {
+                            Image(systemName: "plus")
+                                .onTapGesture {
+                                    isLoginValidCommunity = true
+                                }
+                        }
+                        
+                    }
+                    .padding(.top,40)
+                        
                         
                         
                         
                             VStack {
-                                ForEach(network.admins, id: \.idAdmin) { item in
-                                    
+                                ForEach(network.communityis, id: \.idCommunities) { item in
+
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 12)
                                         .fill(Color.white)
                                         .frame(width: 344, height: 176)
                                         .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.14), radius: 17, y: 8)
-                                        
+
                                         RoundedRectangle(cornerRadius: 12)
                                         .fill(Color(red: 0.87, green: 0.88, blue: 1)).rotationEffect(.degrees(-180))
                                         .frame(width: 145, height: 161)
                                         .padding(.trailing,180)
-                                        
+
                                         Image("avatarPerson")
                                             .padding(.bottom,10)
                                             .padding(.trailing,180)
-                                        
+
                                         VStack{
-                                            
-                                            Text("Cassie Valdez")
+
+                                            Text(item.CommunityName)
                                                 .fontWeight(.semibold)
                                                 .font(.callout)
                                                 .foregroundColor(Color("WhiteColor"))
@@ -109,8 +148,13 @@ struct AdminPanel: View {
                                         }
                                     }
                                     .padding(.horizontal,5)
+
                                 }
+                            }.onAppear {
+                                network.getCommunity()
                             }
+                    
+                    
                             
                         }
                         .padding(.top,40)
@@ -118,10 +162,14 @@ struct AdminPanel: View {
         }
         .navigationBarBackButtonHidden(true)
     }
+    
+    
 }
+
+
 
 struct AdminPanel_Previews: PreviewProvider {
     static var previews: some View {
-        AdminPanel(welcomeName:"Admin").environmentObject(Network())
+        AdminPanel(welcomeAdminName:"Admin", welcomeAdminId: 1).environmentObject(Network())
     }
 }

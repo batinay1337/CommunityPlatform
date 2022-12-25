@@ -17,7 +17,8 @@ struct AdminLogin: View {
     
     
     @State private var isLoginValid: Bool = false
-    @State private var welcomeName  = ""
+    @State private var welcomeAdminName  = ""
+    @State private var welcomeAdminId: Int = 0
     @State private var shouldShowLoginAlert: Bool = false
     
     
@@ -66,7 +67,7 @@ struct AdminLogin: View {
                 
                
                 
-                NavigationLink(destination: AdminPanel(welcomeName: welcomeName).environmentObject(network), isActive: self.$isLoginValid) {
+                NavigationLink(destination: AdminPanel(welcomeAdminName: welcomeAdminName,welcomeAdminId: welcomeAdminId).environmentObject(network), isActive: self.$isLoginValid) {
                     /*
                      Here we put the content view of `NavigationLink`.
                      It could be any `View` even `Button` but in this
@@ -93,7 +94,9 @@ struct AdminLogin: View {
                                 
                                 if admin.AdminPassword == adminPassword && admin.AdminName == adminName{
                                     isLoginValid = true
-                                    self.welcomeName = admin.AdminName
+                                    self.welcomeAdminName = admin.AdminName
+                                    self.welcomeAdminId = admin.idAdmin
+                                    
                                     
                                     
                                 }

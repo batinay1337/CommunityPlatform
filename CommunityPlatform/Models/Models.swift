@@ -38,7 +38,7 @@ struct Admin: Decodable {
 
 
 
-struct CommunitySocialMediaAccounts {
+struct CommunitySocialMediaAccounts: Decodable {
     let idCommunitySocialMediaAccounts: Int
     let FacebookLink: String
     let InstagramLink: String
@@ -48,23 +48,27 @@ struct CommunitySocialMediaAccounts {
 
 struct CommunityLeader: Decodable {
     let idCommunityLeader: Int
+    let CommunityLeaderName: String
+    let CommunityLeaderSurname: String
     let CommunityLeaderPassword: String
     let Student_idStudent: Int
 }
 
-
+struct Student_has_Communities: Decodable {
+    let Student_idStudent: Int
+    let Communities_idCommunities: Int
+}
 
 struct Communities: Decodable {
     let idCommunities: Int
     let CommunityName: String
-    let YearOfFoundation: Date
-    let HeadOfCommunity: String
+    let YearOfFoundation: String
     let CommunityEMail: String
     let PurposeOfTheCommunity: String
-//    let CommunityProfileImage: CGImageSource
-//    let CommunityPictures:CGImageSource
-//    let CommunityVideo:CGImageSource
-    let Admin_idAdmin: Int
+    let CommunityProfileImage: String 
+    let CommunityPictures:String
+    let CommunityVideo:String
+    let Admins_idAdmin: Int
     let CommunitySocialMediaAccounts_idCommunitySocialMediaAccounts: Int
     let CommunityLeader_idCommunityLeader: Int
 }

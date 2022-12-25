@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9F0A1C0429560C0B004BC14C /* AdminPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A1C0329560C0B004BC14C /* AdminPanel.swift */; };
 		9F0A1C2729572E1E004BC14C /* CreateLeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A1C2629572E1E004BC14C /* CreateLeader.swift */; };
+		9F0A1C292957C3B9004BC14C /* CreateCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A1C282957C3B9004BC14C /* CreateCommunity.swift */; };
+		9F0A1C2B29588D3D004BC14C /* ViewCommunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A1C2A29588D3D004BC14C /* ViewCommunity.swift */; };
+		9F0A1C2E2958B6B7004BC14C /* CommsSocialMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0A1C2D2958B6B7004BC14C /* CommsSocialMediaView.swift */; };
 		9F2DEE662953BD8100AF67EB /* CommunityPlatformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE652953BD8100AF67EB /* CommunityPlatformApp.swift */; };
 		9F2DEE682953BD8100AF67EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE672953BD8100AF67EB /* ContentView.swift */; };
 		9F2DEE6A2953BD8100AF67EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F2DEE692953BD8100AF67EB /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		9F0A1C0329560C0B004BC14C /* AdminPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanel.swift; sourceTree = "<group>"; };
 		9F0A1C2629572E1E004BC14C /* CreateLeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLeader.swift; sourceTree = "<group>"; };
+		9F0A1C282957C3B9004BC14C /* CreateCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommunity.swift; sourceTree = "<group>"; };
+		9F0A1C2A29588D3D004BC14C /* ViewCommunity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCommunity.swift; sourceTree = "<group>"; };
+		9F0A1C2D2958B6B7004BC14C /* CommsSocialMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommsSocialMediaView.swift; sourceTree = "<group>"; };
 		9F2DEE622953BD8100AF67EB /* CommunityPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommunityPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2DEE652953BD8100AF67EB /* CommunityPlatformApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPlatformApp.swift; sourceTree = "<group>"; };
 		9F2DEE672953BD8100AF67EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F0A1C2C2958B688004BC14C /* CommsSocialMedia */ = {
+			isa = PBXGroup;
+			children = (
+				9F0A1C2D2958B6B7004BC14C /* CommsSocialMediaView.swift */,
+			);
+			path = CommsSocialMedia;
+			sourceTree = "<group>";
+		};
 		9F2DEE592953BD8100AF67EB = {
 			isa = PBXGroup;
 			children = (
@@ -101,15 +115,18 @@
 		9F2DEE742953BDFA00AF67EB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9F2DEE872953C35500AF67EB /* SignIn.swift */,
+				9F0A1C2C2958B688004BC14C /* CommsSocialMedia */,
 				9F2DEE842953BE7E00AF67EB /* Buttons */,
 				9F2DEE812953BE4900AF67EB /* TextFields */,
 				9F2DEE672953BD8100AF67EB /* ContentView.swift */,
+				9F2DEE872953C35500AF67EB /* SignIn.swift */,
 				9F0A1C0329560C0B004BC14C /* AdminPanel.swift */,
 				9F2DEE8B2953C4C400AF67EB /* AdminLogin.swift */,
 				9F2DEE8D2953C4F100AF67EB /* HomePage.swift */,
 				9F2DEE8F2953C52200AF67EB /* PasswordField.swift */,
 				9F0A1C2629572E1E004BC14C /* CreateLeader.swift */,
+				9F0A1C282957C3B9004BC14C /* CreateCommunity.swift */,
+				9F0A1C2A29588D3D004BC14C /* ViewCommunity.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,11 +219,14 @@
 				9F2DEE8E2953C4F100AF67EB /* HomePage.swift in Sources */,
 				9F2DEE882953C35500AF67EB /* SignIn.swift in Sources */,
 				9F2DEE8C2953C4C400AF67EB /* AdminLogin.swift in Sources */,
+				9F0A1C2B29588D3D004BC14C /* ViewCommunity.swift in Sources */,
 				9F0A1C2729572E1E004BC14C /* CreateLeader.swift in Sources */,
+				9F0A1C2E2958B6B7004BC14C /* CommsSocialMediaView.swift in Sources */,
 				9F0A1C0429560C0B004BC14C /* AdminPanel.swift in Sources */,
 				9F2DEE902953C52200AF67EB /* PasswordField.swift in Sources */,
 				9FCA46AE2955455400A6763E /* Network.swift in Sources */,
 				9F2DEE662953BD8100AF67EB /* CommunityPlatformApp.swift in Sources */,
+				9F0A1C292957C3B9004BC14C /* CreateCommunity.swift in Sources */,
 				9F2DEE942953D17100AF67EB /* ViewModel.swift in Sources */,
 				9F2DEE922953C83800AF67EB /* Models.swift in Sources */,
 			);

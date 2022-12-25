@@ -13,7 +13,11 @@ struct CreateLeader: View {
     let welcomeName: String
     
     @State private var Student_idStudent = ""
+    @State private var CommunityLeaderName = ""
+    @State private var CommunityLeaderSurname = ""
     @State private var CommunityLeaderPassword = ""
+    
+    
     
     var body: some View {
         NavigationView{
@@ -24,6 +28,23 @@ struct CreateLeader: View {
                     .foregroundColor(.red)
                 
                 TextField("Enter Student ID...", text: $Student_idStudent)
+                
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 6, y: 7)
+                    .frame(width: 343, height: 53)
+                    .cornerRadius(8)
+                    .foregroundColor(Color("TextColor"))
+                
+                
+                TextField("Enter Student Name...", text: $CommunityLeaderName)
+                
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 6, y: 7)
+                    .frame(width: 343, height: 53)
+                    .cornerRadius(8)
+                    .foregroundColor(Color("TextColor"))
+                
+                TextField("Enter Student Surname...", text: $CommunityLeaderSurname)
                 
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.03), radius: 6, y: 7)
@@ -46,9 +67,11 @@ struct CreateLeader: View {
                         //determine login validity
                         
                         
+                        
+                        
 //                            let hashedPass = self.hashPassword(hashPassword(adminPassword))
                         if Student_idStudent != "" && CommunityLeaderPassword != "" {
-                            let parameters: [String: Any] =  ["CommunityLeaderPassword" : CommunityLeaderPassword, "Student_idStudent": Student_idStudent]
+                            let parameters: [String: Any] =  ["CommunityLeaderName": CommunityLeaderName,"CommunityLeaderSurname": CommunityLeaderSurname,"CommunityLeaderPassword" : CommunityLeaderPassword, "Student_idStudent": Student_idStudent]
                             
                             network.createCommunityLeader(parameters: parameters)
                         } else {
@@ -74,6 +97,7 @@ struct CreateLeader: View {
             }
         }
     }
+    
 }
 
 struct CreateLeader_Previews: PreviewProvider {

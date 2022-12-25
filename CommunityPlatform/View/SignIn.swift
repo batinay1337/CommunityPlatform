@@ -67,6 +67,7 @@ struct SignIn: View {
                     .cornerRadius(8)
                     .foregroundColor(Color("TextColor"))
                     .padding(.top, 40)
+                    
                 
                 
                 
@@ -74,7 +75,7 @@ struct SignIn: View {
                 
                
                             
-                NavigationLink(destination: Mainpage(), isActive: self.$isLoginValidStu) {
+                NavigationLink(destination: Mainpage().environmentObject(Network()), isActive: self.$isLoginValidStu) {
                     /*
                      Here we put the content view of `NavigationLink`.
                      It could be any `View` even `Button` but in this
@@ -135,7 +136,7 @@ struct SignIn: View {
                 HStack{
                     Text("For admin -> ")
                     
-                    NavigationLink(destination: AdminLogin().environmentObject(network), isActive: self.$isLoginValidAdmin) {
+                    NavigationLink(destination: AdminLogin().environmentObject(Network()), isActive: self.$isLoginValidAdmin) {
                         /*
                          Here we put the content view of `NavigationLink`.
                          It could be any `View` even `Button` but in this
@@ -154,12 +155,13 @@ struct SignIn: View {
                 .padding(.top)
                 .padding(.bottom)
             }
-            .alert(isPresented: $shouldShowLoginAlert) {
-                Alert(title: Text("Email/Password incorrect"))
-            }
             .onAppear {
                         network.getUsers()
                     }
+            .alert(isPresented: $shouldShowLoginAlert) {
+                Alert(title: Text("Email/Password incorrect"))
+            }
+            
         }
         
     }
