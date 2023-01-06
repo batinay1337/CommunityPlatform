@@ -23,7 +23,7 @@ http://localhost:3000
 example usage by batinay:
 
 ```
-xmysql -h localhost -u root -p 12345678 -d CommunityPlatform-BatinayUnsel-20070001051
+xmysql -h localhost -u root -p 12345678 -d CommunityPlatform
 ```
 
 Signin page:
