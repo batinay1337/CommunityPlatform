@@ -42,6 +42,9 @@ Create Community Leader page:
 
 ![](https://github.com/batinay1337/CommunityPlatform/blob/main/Assets/createcom.png?raw=true)
 
+ER Diagram:
+![](https://github.com/batinay1337/CommunityPlatform/blob/main/Database/CommunityPlatform-ER%20Diagram.png?raw=true)
+
 Postman api view:
 
 ![](https://github.com/batinay1337/CommunityPlatform/blob/main/Assets/postman.png?raw=true)
