@@ -23,6 +23,7 @@
 		9F2DEE922953C83800AF67EB /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE912953C83800AF67EB /* Models.swift */; };
 		9F2DEE942953D17100AF67EB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2DEE932953D17100AF67EB /* ViewModel.swift */; };
 		9FCA46AE2955455400A6763E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCA46AD2955455400A6763E /* Network.swift */; };
+		9FDC1DF8299AD74A00E31D51 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDC1DF7299AD74A00E31D51 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		9F2DEE932953D17100AF67EB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9F2DEE952953D83A00AF67EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9FCA46AD2955455400A6763E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		9FDC1DF7299AD74A00E31D51 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		9F2DEE812953BE4900AF67EB /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
+				9FDC1DF6299AD73200E31D51 /* SearchScreens */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -143,6 +146,14 @@
 			children = (
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		9FDC1DF6299AD73200E31D51 /* SearchScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9FDC1DF7299AD74A00E31D51 /* SearchBar.swift */,
+			);
+			path = SearchScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +228,7 @@
 			files = (
 				9F2DEE682953BD8100AF67EB /* ContentView.swift in Sources */,
 				9F2DEE8E2953C4F100AF67EB /* HomePage.swift in Sources */,
+				9FDC1DF8299AD74A00E31D51 /* SearchBar.swift in Sources */,
 				9F2DEE882953C35500AF67EB /* SignIn.swift in Sources */,
 				9F2DEE8C2953C4C400AF67EB /* AdminLogin.swift in Sources */,
 				9F0A1C2B29588D3D004BC14C /* ViewCommunity.swift in Sources */,

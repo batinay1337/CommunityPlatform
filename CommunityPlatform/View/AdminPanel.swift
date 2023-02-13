@@ -52,9 +52,6 @@ struct AdminPanel: View {
                         
                     }
                     
-                    
-                    
-                    
                     ScrollView(.horizontal) {
                         HStack {
                             
@@ -77,21 +74,14 @@ struct AdminPanel: View {
                                         
                                         Image("avatarPerson")
                                             .padding(.bottom,10)
-                                            
-                                       
-                                        
-                                        
                                         Text(item.CommunityLeaderName)
                                             .fontWeight(.semibold)
                                             .font(.callout)
                                             .foregroundColor(Color("WhiteColor"))
-                                            
                                     }
                                     
                                 }
                                 .padding(.horizontal,5)
-                                
-                                
                             }
                             
                         }
@@ -106,7 +96,6 @@ struct AdminPanel: View {
                         .font(.title3)
                         .padding(.trailing,165)
                         
-                        
                         NavigationLink(destination: CreateCommunity(welcomeAdminName: welcomeAdminName,welcomeAdminId: welcomeAdminId).environmentObject(network), isActive: self.$isLoginValidCommunity) {
                             Image(systemName: "plus")
                                 .onTapGesture {
@@ -116,10 +105,7 @@ struct AdminPanel: View {
                         
                     }
                     .padding(.top,40)
-                        
-                        
-                        
-                        
+                    
                             VStack {
                                 ForEach(network.communityis, id: \.idCommunities) { item in
 
@@ -153,19 +139,13 @@ struct AdminPanel: View {
                             }.onAppear {
                                 network.getCommunity()
                             }
-                    
-                    
-                            
                         }
                         .padding(.top,40)
             }
         }
         .navigationBarBackButtonHidden(true)
     }
-    
-    
 }
-
 
 
 struct AdminPanel_Previews: PreviewProvider {

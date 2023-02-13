@@ -16,21 +16,13 @@ struct Mainpage: View {
     
     var body: some View {
        
-            
-            
             NavigationView{
-                
-                
                 ScrollView{
-                    
                     VStack{
-                        
+                        SearchBar()
                         ForEach(network.communityis, id: \.idCommunities) { item in
-                            
                             NavigationLink(destination: ViewCommunity(item: item)) {
-                                
                                 ZStack {
-                                    
                                     RoundedRectangle(cornerRadius: 12)
                                         .fill(Color.white)
                                         .frame(width: 344, height: 176)
@@ -63,16 +55,9 @@ struct Mainpage: View {
                         
                     }
             }
-                
-                
         }
             .navigationBarBackButtonHidden(true)
-            
-        
     }
-    
-    
-
 }
 
 struct Mainpage_Previews: PreviewProvider {

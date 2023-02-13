@@ -67,7 +67,7 @@ struct AdminLogin: View {
                 
                
                 
-                NavigationLink(destination: AdminPanel(welcomeAdminName: welcomeAdminName,welcomeAdminId: welcomeAdminId).environmentObject(network), isActive: self.$isLoginValid) {
+                
                     /*
                      Here we put the content view of `NavigationLink`.
                      It could be any `View` even `Button` but in this
@@ -81,7 +81,7 @@ struct AdminLogin: View {
                             //determine login validity
                             
                             
-                            let hashedPass = self.hashPassword(hashPassword(adminPassword))
+                            _ = self.hashPassword(hashPassword(adminPassword))
                             
                             //MARK: QUERYDEN GELEN PASSWORD SELECT BURADAKI HASH STRINGI ILE YER DEĞİŞTİRECEK
                             
@@ -121,6 +121,7 @@ struct AdminLogin: View {
                                 
                             }
                         }
+                        
                     
                     
                         .frame(width: 267, height: 61)
@@ -130,6 +131,9 @@ struct AdminLogin: View {
                         .foregroundColor(.white)
                         .fontWeight(.semibold)
                         .padding(.top)
+                        .navigationDestination(isPresented: self.$isLoginValid) {
+                            AdminPanel(welcomeAdminName: welcomeAdminName,welcomeAdminId: welcomeAdminId).environmentObject(network)
+                        }
                 }
                 .disabled(adminName.isEmpty)
                 .disabled(adminPassword.isEmpty)
@@ -138,7 +142,7 @@ struct AdminLogin: View {
                 
                 
                 
-            }
+            
             .alert(isPresented: $shouldShowLoginAlert) {
                 Alert(title: Text("Email/Password incorrect"))
             }
@@ -146,7 +150,7 @@ struct AdminLogin: View {
                 network.getAdmins()
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(false)
         
     }
     

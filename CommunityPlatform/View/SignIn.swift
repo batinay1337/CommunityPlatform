@@ -18,7 +18,6 @@ struct SignIn: View {
     @EnvironmentObject var network: Network
    
     
-    
     @State private var userName = "Batinay"
     @State private var password = "1234"
     @State private var isSecured: Bool = true
@@ -28,7 +27,10 @@ struct SignIn: View {
     @State private var isLoginValidAdmin: Bool = false
     @State private var shouldShowLoginAlert: Bool = false
     
+    //for easteregg admin login channel
     
+    @State private var isAdminEaster: Bool = false
+    @State private var isAdminEasterButton: Int = 0
     
     
     
@@ -45,17 +47,8 @@ struct SignIn: View {
       return hash.map { String(format: "%02x", $0) }.joined()
     }
     
-    
-   
-    
-    
-    
-    
     var body: some View {
         NavigationView{
-            
-            
-            
             VStack{
                 Image("SignInImage")
                 
@@ -69,18 +62,9 @@ struct SignIn: View {
                     .padding(.top, 40)
                     
                 
-                
-                
                 PasswordField("Password", text: $password)
                 
-               
-                            
-                NavigationLink(destination: Mainpage().environmentObject(Network()), isActive: self.$isLoginValidStu) {
-                    /*
-                     Here we put the content view of `NavigationLink`.
-                     It could be any `View` even `Button` but in this
-                     example we use a `Text` with `onTapGesture`.
-                     */
+                    
                     Text("Sign in")
                         .onTapGesture {
                             //determine login validity
@@ -103,12 +87,6 @@ struct SignIn: View {
                                 }
                             }
                             
-                           
-                            
-                                
-                            
-                            
-                            
                             //trigger logic
                             if isLoginValid {
                                 self.isLoginValidStu = true //trigger NavigationLink
@@ -127,33 +105,52 @@ struct SignIn: View {
                     .foregroundColor(.white)
                     .fontWeight(.semibold)
                     .padding(.top)
-                }
-                .disabled(userName.isEmpty)
-                .disabled(password.isEmpty)
-                
+                    .navigationDestination(isPresented: self.$isLoginValidStu) {
+                        Mainpage().environmentObject(Network())
+                    }
+                    .disabled(userName.isEmpty)
+                    .disabled(password.isEmpty)
                 
                 
                 HStack{
-                    Text("For admin -> ")
                     
-                    NavigationLink(destination: AdminLogin().environmentObject(Network()), isActive: self.$isLoginValidAdmin) {
-                        /*
-                         Here we put the content view of `NavigationLink`.
-                         It could be any `View` even `Button` but in this
-                         example we use a `Text` with `onTapGesture`.
-                         */
-                        Text("Login")
-                            .onTapGesture {
-                                
-                                //trigger logic
-                                self.isLoginValidAdmin = true //trigger NavigationLink
-                                
-                               
-                            }
+                    NavigationLink {
+                        AdminLogin().environmentObject(Network())
+                    } label: {
+                        Text(" ")
+                        if isAdminEaster == true{
+                            Text("Admin").bold()
+                            Label("Login", systemImage: "bolt.fill").bold()
+                        }
                     }
+                   
                 }
                 .padding(.top)
                 .padding(.bottom)
+                
+                
+                
+                Button {
+                    //Code here before changing the bool value
+                    
+                    self.isAdminEasterButton += 1
+                    
+                    if self.isAdminEasterButton == 6 {
+                        self.isAdminEaster = true
+                    }
+                    
+                } label: {
+                    Text(" ")
+                    if self.isAdminEasterButton > 2 {
+                        Label("",systemImage: "bolt.fill").bold()
+                            .foregroundColor(Color(red: 0.34, green: 0.40, blue: 0.99))
+                    }
+                }
+                .offset(x:160,y:50)
+                .frame(width: 20, height: 20)
+                
+                
+                
             }
             .onAppear {
                         network.getUsers()
@@ -166,7 +163,6 @@ struct SignIn: View {
         
     }
 }
-
 
 struct SignIn_Previews: PreviewProvider {
     static var previews: some View {
