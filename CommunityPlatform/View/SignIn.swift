@@ -96,6 +96,7 @@ struct SignIn: View {
                                 
                             }
                         }
+                        
                     
                     
                     .frame(width: 267, height: 61)
@@ -108,8 +109,11 @@ struct SignIn: View {
                     .navigationDestination(isPresented: self.$isLoginValidStu) {
                         Mainpage().environmentObject(Network())
                     }
-                    .disabled(userName.isEmpty)
-                    .disabled(password.isEmpty)
+//                    .disabled(userName.isEmpty)
+//                    .disabled(password.isEmpty)
+                    .onAppear {
+                                network.getUsers()
+                            }
                 
                 
                 HStack{

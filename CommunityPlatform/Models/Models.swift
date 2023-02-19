@@ -27,7 +27,6 @@ struct StudentModel: Decodable
 
 
 struct Admin: Decodable {
-    
     let idAdmin: Int
     let AdminPassword: String
     let AdminName: String

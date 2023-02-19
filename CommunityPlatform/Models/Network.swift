@@ -15,12 +15,17 @@ class Network: ObservableObject {
     @Published var communityis: [Communities] = []
     @Published var socialmedias: [CommunitySocialMediaAccounts] = []
     
+    
     func getUsers() {
-        guard let url = URL(string: "http://localhost:3000/api/Student") else { fatalError("Missing URL") }
+        guard let url = URL(string: "https://community.batinay.dev/api/Student") else { fatalError("Missing URL") }
         
-        let urlRequest = URLRequest(url: url)
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = nil
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let session = URLSession(configuration: configuration)
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Request error: ", error)
                 return
@@ -47,9 +52,13 @@ class Network: ObservableObject {
     func getSocialMedia() {
         guard let url = URL(string: "http://localhost:3000/api/CommunitySocialMediaAccounts") else { fatalError("Missing URL") }
         
-        let urlRequest = URLRequest(url: url)
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = nil
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let session = URLSession(configuration: configuration)
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Request error: ", error)
                 return
@@ -76,9 +85,13 @@ class Network: ObservableObject {
     func getCommunity() {
         guard let url = URL(string: "http://localhost:3000/api/Communities") else { fatalError("Missing URL") }
         
-        let urlRequest = URLRequest(url: url)
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = nil
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let session = URLSession(configuration: configuration)
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Request error: ", error)
                 return
@@ -104,11 +117,16 @@ class Network: ObservableObject {
     
     
     func getAdmins() {
-        guard let url = URL(string: "http://localhost:3000/api/Admins") else { fatalError("Missing URL") }
+        guard let url = URL(string: "https://community.batinay.dev/api/Admins") else { fatalError("Missing URL") }
         
-        let urlRequest = URLRequest(url: url)
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = nil
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+        
+        let session = URLSession(configuration: configuration)
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Request error: ", error)
                 return
@@ -132,12 +150,19 @@ class Network: ObservableObject {
         dataTask.resume()
     }
     
+    
+    
+    
     func getCommunityLeader() {
-        guard let url = URL(string: "http://localhost:3000/api/CommunityLeader") else { fatalError("Missing URL") }
+        guard let url = URL(string: "https://community.batinay.dev/api/CommunityLeader") else { fatalError("Missing URL") }
         
-        let urlRequest = URLRequest(url: url)
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = nil
+        configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let session = URLSession(configuration: configuration)
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print("Request error: ", error)
                 return
@@ -165,7 +190,7 @@ class Network: ObservableObject {
     
     func createCommunityLeader(parameters: [String: Any]) {
         // Set the URL for the POST request
-        guard let url = URL(string: "http://localhost:3000/api/CommunityLeader") else { fatalError("Invalid CREATE URL") }
+        guard let url = URL(string: "https://community.batinay.dev/api/CommunityLeader") else { fatalError("Invalid CREATE URL") }
         
         
         let data = try! JSONSerialization.data(withJSONObject: parameters)

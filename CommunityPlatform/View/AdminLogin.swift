@@ -25,17 +25,18 @@ struct AdminLogin: View {
     
     
     
+    
     func hashPassword(_ password: String) -> String {
-      let salt = "my-salt-value"
-      let saltedPassword = password + salt
-      let data = saltedPassword.data(using: .utf8)!
-      let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
-        var hash = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
-        CC_SHA256(bytes.baseAddress, CC_LONG(data.count), &hash)
-         
-        return hash
-      }
-      return hash.map { String(format: "%02x", $0) }.joined()
+        let salt = "my-salt-value"
+        let saltedPassword = password + salt
+        let data = saltedPassword.data(using: .utf8)!
+        let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
+            var hash = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
+            CC_SHA256(bytes.baseAddress, CC_LONG(data.count), &hash)
+            
+            return hash
+        }
+        return hash.map { String(format: "%02x", $0) }.joined()
     }
     
     
@@ -65,99 +66,97 @@ struct AdminLogin: View {
                 
                 PasswordField("Password", text: $adminPassword)
                 
-               
                 
                 
-                    /*
-                     Here we put the content view of `NavigationLink`.
-                     It could be any `View` even `Button` but in this
-                     example we use a `Text` with `onTapGesture`.
-                     */
-                    
-                    
-                    
-                    Text("Sign in")
-                        .onTapGesture {
-                            //determine login validity
+                
+                /*
+                 Here we put the content view of `NavigationLink`.
+                 It could be any `View` even `Button` but in this
+                 example we use a `Text` with `onTapGesture`.
+                 */
+                
+                
+                
+                Text("Sign in")
+                    .onTapGesture {
+                        //determine login validity
+                        
+                        
+                        _ = self.hashPassword(hashPassword(adminPassword))
+                        
+                        //MARK: QUERYDEN GELEN PASSWORD SELECT BURADAKI HASH STRINGI ILE YER DEĞİŞTİRECEK
+                        
+                        var isLoginValid = false
+                        
+                        self.network.getAdmins()
+                        
+                        
+                        for admin in self.network.admins {
                             
-                            
-                            _ = self.hashPassword(hashPassword(adminPassword))
-                            
-                            //MARK: QUERYDEN GELEN PASSWORD SELECT BURADAKI HASH STRINGI ILE YER DEĞİŞTİRECEK
-                            
-                            var isLoginValid = false
-                            
-                            self.network.getAdmins()
-                            
-                            
-                            for admin in self.network.admins {
+                            if admin.AdminPassword == adminPassword && admin.AdminName == adminName{
+                                isLoginValid = true
+                                self.welcomeAdminName = admin.AdminName
+                                self.welcomeAdminId = admin.idAdmin
                                 
-                                if admin.AdminPassword == adminPassword && admin.AdminName == adminName{
-                                    isLoginValid = true
-                                    self.welcomeAdminName = admin.AdminName
-                                    self.welcomeAdminId = admin.idAdmin
-                                    
-                                    
-                                    
-                                }
                                 
                                 
                             }
                             
                             
-                            
-                            
-                            
-                            
-                            
-                            //trigger logic
-                            if isLoginValid {
-                                self.isLoginValid = true //trigger NavigationLink
-                                
-                            }
-                            else {
-                                self.shouldShowLoginAlert = true //trigger Alert
-                                
-                                
-                            }
                         }
                         
-                    
-                    
-                        .frame(width: 267, height: 61)
-                        .background(Color(red: 0.34, green: 0.40, blue: 0.99))
-                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.10), radius: 32, y: 14)
-                        .cornerRadius(12)
-                        .foregroundColor(.white)
-                        .fontWeight(.semibold)
-                        .padding(.top)
-                        .navigationDestination(isPresented: self.$isLoginValid) {
-                            AdminPanel(welcomeAdminName: welcomeAdminName,welcomeAdminId: welcomeAdminId).environmentObject(network)
+                        
+                        
+                        
+                        
+                        
+                        
+                        //trigger logic
+                        if isLoginValid {
+                            self.isLoginValid = true //trigger NavigationLink
+                            
                         }
-                }
-                .disabled(adminName.isEmpty)
-                .disabled(adminPassword.isEmpty)
+                        else {
+                            self.shouldShowLoginAlert = true //trigger Alert
+                            
+                            
+                        }
+                    }
                 
+                    
                 
-                
-                
-                
+                    .frame(width: 267, height: 61)
+                    .background(Color(red: 0.34, green: 0.40, blue: 0.99))
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.10), radius: 32, y: 14)
+                    .cornerRadius(12)
+                    .foregroundColor(.white)
+                    .fontWeight(.semibold)
+                    .padding(.top)
+                    .navigationDestination(isPresented: self.$isLoginValid) {
+                        AdminPanel(welcomeAdminName: welcomeAdminName,welcomeAdminId: welcomeAdminId).environmentObject(network)
+                    }
+            }
+            .disabled(adminName.isEmpty)
+            .disabled(adminPassword.isEmpty)
+            
+            .onAppear {
+                network.getAdmins()
+            }
             
             .alert(isPresented: $shouldShowLoginAlert) {
                 Alert(title: Text("Email/Password incorrect"))
             }
-            .onAppear {
-                network.getAdmins()
-            }
+            
+            
         }
         .navigationBarBackButtonHidden(false)
         
+        
+        
+        
     }
     
-
 }
-
-
 
 struct AdminLogin_Previews: PreviewProvider {
     static var previews: some View {
